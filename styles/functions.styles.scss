@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+@function designValueToEms($value) {
+  @return math.div($value, 1000) * 1em;
+}
+
+@function ptToRem($pt) {
+  @return $pt * 0.0836 * 1rem;
+}
+
+@function pxToRem($px) {
+  @return math.div($px, 16) * 1rem;
+}

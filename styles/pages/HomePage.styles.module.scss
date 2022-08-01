@@ -1,0 +1,407 @@
+@import '../styles.scss';
+
+.homePageCarousel {
+  min-height: calc(50vh - var(--nav-bar-height));
+  position: relative;
+
+  .homePageCarouselItem {
+    animation-duration: 800ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transform: translateX(#{pxToRem(16)});
+
+    @include ltr {
+      left: 0;
+    }
+
+    @include rtl {
+      right: 0;
+    }
+
+    .homePageCarouselItemAction {
+      align-items: flex-start;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(4);
+      justify-content: space-between;
+      stroke: #ffffff;
+      width: 100%;
+
+      & > * {
+        font-family: var(--styled-font);
+        font-size: pxToRem(24);
+      }
+
+      svg {
+        transform: rotate(0deg);
+        transform-origin: center center;
+      }
+    }
+  }
+
+  @keyframes carouselItemIn {
+    from {
+      opacity: 0;
+      transform: translateX(#{pxToRem(16)});
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(#{pxToRem(0)});
+    }
+  }
+
+  .homePageCarouselItemIn {
+    animation-name: carouselItemIn;
+  }
+
+  @keyframes carouselItemOut {
+    from {
+      opacity: 1;
+      transform: translateX(#{pxToRem(0)});
+    }
+
+    to {
+      opacity: 0;
+      transform: translateX(#{pxToRem(-16)});
+    }
+  }
+
+  .homePageCarouselItemOut {
+    animation-name: carouselItemOut;
+  }
+}
+
+.aboutPageItemContainer {
+  --background-color: rgba(175, 138, 91, 0.3);
+
+  .aboutPageItemAction {
+    --color: #000000;
+
+    .aboutPageItemIntroText {
+      font-size: pxToRem(24);
+      line-height: 1.25;
+      max-width: $medium;
+    }
+  }
+
+  .aboutPageItemActionHovered {
+    --hover-color: #535353;
+  }
+
+  .aboutPageItemArrowAction {
+    --color: #139ed7;
+    font-size: pxToRem(12);
+  }
+
+  .aboutPageItemArrowActionHovered {
+    --hover-color: #535353;
+  }
+}
+
+.projectsPageItemContainer {
+  --padding: var(--content-padding) var(--content-padding) #{pxToRem(70)} var(--content-padding);
+  $rowSpacing: pxToRem(64);
+
+  .projectsPageItemImage {
+    --aspect-ratio: 1.5;
+  }
+
+  .projectsPageItemTitle {
+    font-family: var(--styled-font);
+  }
+
+  .projectsPageItemSubtitle {
+    font-size: pxToRem(12);
+  }
+
+  .projectsPageItemTopRow {
+    --flex-direction: column;
+    --gap: #{$rowSpacing};
+    --justify-content: flex-start;
+    --margin: #{pxToRem(14)} auto #{$rowSpacing} auto;
+    --padding: #{pxToRem(0)};
+
+    .projectsPageItemTopRowLarge {
+      width: 100%;
+    }
+
+    .projectsPageItemTopRowLarge,
+    .projectsPageItemTopRowSmall {
+      width: 100%;
+    }
+
+    .projectsPageItemArrowAction {
+      --color: #139ed7;
+      --display: none;
+      font-size: pxToRem(12);
+
+      &:hover {
+        @extend .pageItemArrowActionHovered;
+      }
+    }
+  }
+
+  .projectsPageItemBottomRow {
+    --flex-direction: column;
+    --gap: #{$rowSpacing};
+    --justify-content: flex-start;
+    --padding: #{pxToRem(0)} #{pxToRem(0)} #{pxToRem(70)};
+
+    border-bottom: pxToRem(1) solid #000000;
+    margin-top: pxToRem(64);
+
+    .projectsPageItemBottomRowSmall {
+      width: 100%;
+
+      .projectsPageItemImage {
+        --aspect-ratio: 1.75;
+      }
+    }
+
+    .projectsPageItemBottomRowLarge {
+      width: 100%;
+    }
+  }
+}
+
+.tenantsPageItemContainer {
+  --padding: #{pxToRem(0)} var(--content-padding);
+
+  .tenantsRowItems {
+    --flex-direction: column;
+    --gap: #{pxToRem(64)};
+    --justify-content: flex-start;
+    --padding: #{pxToRem(0)} #{pxToRem(0)} #{pxToRem(100)};
+
+    .tenantsRowTitle {
+      width: 100%;
+
+      .tenantsRowTitleArrow {
+        display: none;
+        stroke: #1fa1d7;
+        transform: rotate(90deg) translateX(#{pxToRem(12)});
+      }
+    }
+
+    .tenantLogos {
+      --gap: #{pxToRem(16)};
+
+      flex-wrap: wrap;
+      gap: var(--gap);
+      justify-content: flex-start;
+      width: 100%;
+
+      .tenantLogo {
+        --image-divider: 1;
+
+        position: relative;
+        height: pxToRem(80);
+        width: 100%;
+      }
+    }
+  }
+}
+
+.approachPageItemContainer {
+  --background-color: rgba(83, 83, 83, 0.15);
+
+  .approachPageIntroText {
+    font-size: pxToRem(36);
+    line-height: 1.2;
+    max-width: $medium;
+
+    .approachPageIntroSecondaryText {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .approachPageItemArrowAction {
+    font-size: pxToRem(12);
+  }
+
+  .approachPageRowRule {
+    --margin: #{pxToRem(32)} auto;
+    --margin-bottom: #{pxToRem(16)};
+
+    border: none;
+    border-bottom: pxToRem(1) solid #828282;
+    margin: var(--margin);
+    margin-bottom: var(--margin-bottom);
+  }
+}
+
+.newsPageRowFirstItem {
+  flex-direction: column;
+  gap: pxToRem(48);
+  justify-content: flex-start;
+
+  .newsPageItemImageContainer {
+    width: 100%;
+
+    .newsPageItemImage {
+      aspect-ratio: 1.7;
+      position: relative;
+      width: 100%;
+
+      &::after {
+        background-color: rgba(0, 0, 0, 0.5);
+        content: '';
+        opacity: 0;
+        position: absolute;
+        top: pxToRem(0);
+        left: pxToRem(0);
+        height: 100%;
+        width: 100%;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    .newsPageItemTitle {
+      font-size: pxToRem(16);
+      max-width: $small;
+    }
+
+    .newsPageItemSubtitle {
+      font-size: pxToRem(14);
+    }
+  }
+}
+
+.newsPageItemArrowAction {
+  --color: #139ed7;
+
+  display: flex;
+
+  &:hover {
+    @extend .pageItemArrowActionHovered;
+  }
+}
+
+@media screen and (min-width: $xsmall) {
+  .tenantsPageItemContainer {
+    .tenantsRowItems {
+      .tenantsRowTitle {
+        .tenantsRowTitleArrow {
+          display: block;
+        }
+      }
+
+      .tenantLogos {
+        .tenantLogo {
+          --image-divider: 2;
+
+          width: calc(
+            (100% - ((var(--image-divider) - 1) * var(--gap))) /
+              var(--image-divider)
+          );
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $small) {
+  .homePageCarousel {
+    min-height: calc(100vh - var(--nav-bar-height));
+  }
+
+  .aboutPageItemContainer {
+    .aboutPageItemAction {
+      .aboutPageItemIntroText {
+        font-size: pxToRem(36);
+      }
+    }
+  }
+
+  .tenantsPageItemContainer {
+    .tenantsRowItems {
+      .tenantLogos {
+        .tenantLogo {
+          --image-divider: 4;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .homePageCarousel {
+    .homePageCarouselItem {
+      .homePageCarouselItemAction {
+        align-items: center;
+        flex-direction: row;
+
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .projectsPageItemContainer {
+    .projectsPageItemTopRow {
+      --flex-direction: row;
+      --title-font: var(--styled-font);
+
+      gap: pxToRem(16);
+
+      .projectsPageItemTopRowLarge {
+        width: 60%;
+      }
+
+      .projectsPageItemTopRowSmall {
+        width: 30%;
+      }
+
+      .projectsPageItemArrowAction {
+        --display: flex;
+      }
+    }
+
+    .projectsPageItemBottomRow {
+      --flex-direction: row;
+      --title-font: var(--styled-font);
+
+      .projectsPageItemBottomRowSmall {
+        width: 40%;
+      }
+
+      .projectsPageItemBottomRowLarge {
+        width: 50%;
+      }
+    }
+  }
+
+  .tenantsPageItemContainer {
+    .tenantsRowItems {
+      .tenantLogos {
+        .tenantLogo {
+          --image-divider: 7;
+        }
+      }
+    }
+  }
+
+  .approachPageItemContainer {
+    .approachPageRowRule {
+      --margin: #{pxToRem(96)} auto;
+      --margin-bottom: #{pxToRem(48)};
+    }
+  }
+
+  .newsPageRowFirstItem {
+    flex-direction: row;
+    max-width: $small;
+  }
+}

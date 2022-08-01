@@ -1,0 +1,30 @@
+@import '../../styles/styles.scss';
+
+.arrow {
+  animation-name: slideLeft;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+  stroke: var(--gray-1);
+
+  @include ltr {
+    right: pxToRem(32);
+  }
+
+  @include rtl {
+    left: pxToRem(32);
+  }
+
+  top: 50%;
+  transition: opacity transform 300ms ease-in-out;
+  z-index: var(--z-index-overlay);
+}
+
+.arrowHovered {
+  animation-name: slideRight;
+}
+
+.title {
+  font-family: var(--title-font, var(--normal-font));
+}

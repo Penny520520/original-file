@@ -1,0 +1,17 @@
+@import '../../../styles/styles.scss';
+
+.container {
+  background-image: url('/Footer.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: var(--content-padding);
+  width: 100%;
+
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(64);
+    margin: 0 auto;
+    max-width: var(--content-max-width);
+  }
+}

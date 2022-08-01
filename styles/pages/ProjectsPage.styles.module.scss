@@ -1,0 +1,99 @@
+@import '../styles.scss';
+
+.projectsPageFirstSectionContainer {
+  --background-color: #ffffff;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  .projectsPageFirstSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    .projectsPageBreadcrumbs {
+      --margin: #{pxToRem(0)};
+    }
+
+    .projectsPageIntro {
+      --gap: #{pxToRem(32)};
+
+      align-items: flex-start;
+      flex-direction: column;
+      width: 100%;
+
+      h1 {
+        font-size: pxToRem(32);
+      }
+
+      .projectsPageSelect {
+        --gap: #{pxToRem(8)};
+        --items-per-row: 1;
+        --selection-dropdown-open-background-color: #eae4dc;
+        --dropdown-background-color: #eae4dc;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap);
+        justify-content: flex-start;
+        width: 100%;
+
+        & > * {
+          max-width: $small;
+          width: calc(
+            (100% - ((var(--items-per-row) - 1) * var(--gap))) /
+              var(--items-per-row)
+          );
+        }
+      }
+    }
+  }
+}
+
+.projectsPageSecondSectionContainer {
+  --background-color: #ffffff;
+  --padding: #{pxToRem(16)} var(--content-padding) #{pxToRem(128)}
+    var(--content-padding);
+  --title-font: var(--styled-font);
+
+  .projectsPageSecondSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    .projectsPageItemImage {
+      aspect-ratio: 1.5;
+    }
+
+    .projectsPageItemTitle {
+      font-family: var(--styled-font);
+    }
+
+    .projectsPageItemSubtitle {
+      font-size: pxToRem(12);
+    }
+  }
+}
+
+@media screen and (min-width: $small) {
+  .projectsPageFirstSectionContainer {
+    .projectsPageFirstSectionItems {
+      .projectsPageIntro {
+        .projectsPageSelect {
+          --items-per-row: 2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .projectsPageFirstSectionContainer {
+    .projectsPageFirstSectionItems {
+      .projectsPageIntro {
+        .projectsPageSelect {
+          --items-per-row: 3;
+          --gap: #{pxToRem(64)};
+        }
+      }
+    }
+  }
+}

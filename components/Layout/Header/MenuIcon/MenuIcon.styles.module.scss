@@ -1,0 +1,11 @@
+@import '../../../../styles/styles.scss';
+
+.menuClosedIconLine {
+  stroke: var(--gray-9);
+  stroke-width: pxToRem(12);
+}
+
+.menuOpenIconLine {
+  stroke: var(--gray-2);
+  stroke-width: pxToRem(8);
+}

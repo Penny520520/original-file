@@ -1,0 +1,41 @@
+@import '../../styles/styles.scss';
+
+.logoGridTitle {
+  width: 100%;
+
+  & > * {
+    font-size: pxToRem(36);
+  }
+
+  .logoGridTitleArrow {
+    display: none;
+    stroke: #1fa1d7;
+    transform: rotate(90deg) translateX(#{pxToRem(12)});
+  }
+}
+
+.logos {
+  --gap: #{pxToRem(16)};
+  --height: #{pxToRem(80)};
+
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: flex-start;
+  width: 100%;
+
+  .logo {
+    position: relative;
+    height: var(--height);
+    width: calc(
+      (100% - ((var(--image-divider) - 1) * var(--gap))) / var(--image-divider)
+    );
+  }
+}
+
+@media screen and (min-width: $xsmall) {
+  .logoGridTitle {
+    .logoGridTitleArrow {
+      display: block;
+    }
+  }
+}

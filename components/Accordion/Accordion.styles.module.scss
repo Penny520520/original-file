@@ -1,0 +1,48 @@
+@import '../../styles/styles.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(32);
+  width: 100%;
+
+  .accordionTitles {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16);
+    width: 100%;
+
+    .accordionTitle {
+      align-items: center;
+      display: flex;
+      gap: pxToRem(8);
+      transform: translateX(#{pxToRem(0)});
+      transition: transform 300ms ease-in-out;
+
+      &.accordionTitleActive {
+        transform: translateX(#{pxToRem(16)});
+      }
+    }
+  }
+
+  .accordionContentContainer {
+    max-width: pxToRem(600);
+    min-height: 150%;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .container {
+    flex-direction: row;
+
+    .accordionTitles {
+      .accordionTitle {
+        &:hover {
+          transform: translateX(#{pxToRem(16)});
+        }
+      }
+    }
+  }
+}

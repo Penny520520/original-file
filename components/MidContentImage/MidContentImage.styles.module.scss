@@ -1,0 +1,36 @@
+@import '../../styles/styles.scss';
+
+.midContentImageSection {
+  --top-block-height: 70%;
+  --padding: #{pxToRem(0)} var(--content-padding);
+
+  position: relative;
+
+  .midContentImageSectionTopBlock {
+    background-color: var(--bg-color);
+    position: absolute;
+    top: pxToRem(0);
+    left: pxToRem(0);
+    height: var(--top-block-height);
+    width: 100%;
+  }
+
+  .midContentImageSectionBottomBlock {
+    background-color: var(--bg-color);
+    position: absolute;
+    top: var(--top-block-height);
+    left: pxToRem(0);
+    height: var(--top-block-height);
+    width: 100%;
+  }
+
+  .midContentRow {
+    --padding: #{pxToRem(0)};
+
+    .midContentImageSectionImageContainer {
+      position: relative;
+      width: 100%;
+      z-index: var(--z-index-above-page);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../styles/styles.scss';
+
+.container {
+  --color: #959595;
+  --row-justify-content: flex-start;
+  --row-gap: #{pxToRem(8)};
+
+  p {
+    font-size: pxToRem(13);
+    font-weight: 600;
+  }
+
+  align-items: center;
+  color: var(--color);
+  flex-wrap: wrap;
+  font-weight: 600;
+  stroke: var(--color);
+  justify-content: flex-start;
+  padding: pxToRem(12) pxToRem(0);
+
+  .segment {
+    align-items: center;
+    display: flex;
+    gap: pxToRem(8);
+    justify-content: flex-start;
+  }
+}

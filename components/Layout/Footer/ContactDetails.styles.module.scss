@@ -1,0 +1,83 @@
+@import '../../../styles/styles.scss';
+
+.contactDetailsRow {
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .contactDetailsRowFirstItem {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .contactDetailsColumn {
+    --color: #6f6f6f;
+
+    flex-direction: column;
+    gap: pxToRem(16);
+
+    .contactDetailsItem {
+      align-items: center;
+      color: var(--color);
+      display: flex;
+      gap: pxToRem(8);
+      stroke: var(--color);
+    }
+
+    .contactDetailsLink {
+      & svg {
+        animation-direction: normal;
+        animation-duration: 300ms;
+        animation-fill-mode: both;
+        animation-name: slideBack;
+        animation-timing-function: ease-in-out;
+      }
+
+      &:hover {
+        --color: #f1f1f1;
+
+        & svg {
+          animation-direction: normal;
+          animation-duration: 300ms;
+          animation-fill-mode: both;
+          animation-name: slideOnHover;
+          animation-timing-function: ease-in-out;
+        }
+      }
+    }
+
+    .contactDetailsAddress {
+      align-items: flex-start;
+
+      .contactDetailsAddressArrow {
+        transform: translateY(#{pxToRem(4)});
+      }
+    }
+
+    .contactDetailsAboveCopyright {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(2);
+    }
+
+    .contactDetailsCopyright {
+      margin-top: pxToRem(16);
+    }
+  }
+}
+
+.contactDetailsText {
+  font-size: pxToRem(11);
+  font-weight: 300;
+}
+
+@media screen and (min-width: 960px) {
+  .contactDetailsRow {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .contactDetailsRowFirstItem {
+      flex-direction: row;
+      gap: pxToRem(32);
+    }
+  }
+}

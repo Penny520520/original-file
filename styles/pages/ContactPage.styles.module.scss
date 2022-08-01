@@ -1,0 +1,254 @@
+@import '../styles.scss';
+
+.contactPageFirstSectionContainer {
+  --background-color: #e7dccd;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  .contactPageFirstSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    .contactPageBreadcrumbs {
+      --margin: #{pxToRem(0)};
+    }
+
+    .contactPageIntro {
+      --gap: #{pxToRem(32)};
+
+      align-items: flex-start;
+      flex-direction: column;
+
+      h1 {
+        font-size: pxToRem(36);
+        margin-bottom: pxToRem(32);
+      }
+    }
+
+    .contactPageFirstSectionItemRow {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: pxToRem(96);
+      margin-bottom: pxToRem(64);
+      width: 100%;
+
+      .contactPageFirstSectionImage {
+        aspect-ratio: 1.5;
+        position: relative;
+        width: 100%;
+      }
+
+      .contactPageFirstSectionContent {
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(32);
+        min-width: pxToRem(200);
+        max-width: 100%;
+
+        .contactPageFirstSectionContentItem {
+          display: flex;
+          flex-direction: column;
+          gap: pxToRem(16);
+
+          h2 {
+            font-family: var(--styled-font);
+          }
+
+          .contactPageFirstSectionContentItemAction {
+            align-items: center;
+            border-bottom: pxToRem(2) solid #000000;
+            color: #5f5a54;
+            display: flex;
+            gap: pxToRem(16);
+            stroke: #5f5a54;
+
+            svg {
+              transform: translateX(#{pxToRem(0)});
+              transition: transform 300ms ease-in-out;
+            }
+
+            &:hover {
+              svg {
+                transform: translateX(#{pxToRem(4)});
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contactPageSecondSectionContainer {
+  --background-color: #ffffff;
+  --padding: var(--content-padding) var(--content-padding)
+    calc(var(--content-padding) * 2) var(--content-padding);
+
+  .contactPageSecondSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    .contactPageIntro {
+      h2 {
+        font-size: pxToRem(36);
+        margin-bottom: pxToRem(32);
+      }
+    }
+
+    .contactPageSecondSectionItemRow {
+      justify-content: flex-start;
+      gap: pxToRem(32);
+      width: 100%;
+
+      .contactPageForm {
+        .contactPageFormFieldset {
+          display: flex;
+          flex-direction: column;
+          gap: pxToRem(32);
+
+          .contactPageFormPrimaryFields {
+            --gap: #{pxToRem(16)};
+            --items-per-row: 1;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--gap);
+
+            & > * {
+              width: calc(
+                (100% - ((var(--items-per-row) - 1) * var(--gap))) /
+                  var(--items-per-row)
+              );
+            }
+          }
+
+          .contactPageFormInput {
+            border-bottom: pxToRem(1) solid #000000;
+            color: #959595;
+            font-size: pxToRem(14);
+          }
+
+          .contactPageFormInput:not(:last-of-type) {
+            margin-bottom: pxToRem(32);
+          }
+
+          .contactPageFormInput:last-of-type {
+            padding-top: pxToRem(0);
+          }
+
+          .contactPageFormTextArea {
+            border: pxToRem(1) solid #000000;
+            color: #000000;
+            font-size: pxToRem(14);
+            margin-top: pxToRem(16);
+          }
+
+          .contactFormSelectFieldContainer {
+            --selection-label-color: #878787;
+            --selection-arrow-stroke: #878787;
+            --selection-dropdown-open-background-color: #eae4dc;
+            --dropdown-background-color: #eae4dc;
+
+            display: flex;
+            flex-direction: column;
+            gap: pxToRem(4);
+            position: relative;
+
+            & label {
+              color: rgb(110, 110, 110);
+              font-size: pxToRem(14);
+              margin-top: pxToRem(16);
+            }
+          }
+
+          .contactFormCheckboxFieldContainer {
+            align-items: flex-start;
+            display: flex;
+            gap: pxToRem(16);
+
+            & input[type='checkbox'] {
+              min-height: pxToRem(30);
+              min-width: pxToRem(30);
+              max-height: pxToRem(30);
+              max-width: pxToRem(30);
+              margin: pxToRem(0);
+            }
+
+            label {
+              color: #959595;
+            }
+          }
+
+          .contactPageFormAction {
+            align-items: center;
+            align-self: flex-start;
+            color: #000000;
+            font-size: pxToRem(36);
+            display: flex;
+            gap: pxToRem(8);
+            stroke: #21a3d8;
+
+            &:hover {
+              & svg {
+                animation-name: slideOnHover;
+              }
+            }
+
+            & svg {
+              animation-direction: normal;
+              animation-duration: 300ms;
+              animation-fill-mode: both;
+              animation-name: slideBack;
+              animation-timing-function: ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: $small) {
+  .contactPageFirstSectionContainer {
+    .contactPageFirstSectionItems {
+      .contactPageFirstSectionItemRow {
+        flex-direction: row;
+
+        .contactPageFirstSectionContent {
+          max-width: 60%;
+        }
+      }
+    }
+  }
+
+  .contactPageSecondSectionContainer {
+    --padding: var(--content-padding);
+
+    .contactPageSecondSectionItems {
+      .contactPageSecondSectionItemRow {
+        .contactPageForm {
+          .contactPageFormFieldset {
+            .contactPageFormPrimaryFields {
+              --items-per-row: 2;
+              --gap: #{pxToRem(64)};
+            }
+
+            .contactPageFormInput:not(:last-of-type) {
+              margin-bottom: pxToRem(0);
+            }
+
+            .contactPageFormInput:last-of-type {
+              padding-top: pxToRem(32);
+            }
+
+            .contactPageFormInput:last-of-type,
+            .contactFormSelectFieldContainer {
+              margin-top: pxToRem(-32);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import '../../styles/styles.scss';
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: var(--menu-height);
+  width: 100%;
+  padding: pxToRem(32) var(--content-padding);
+  position: relative;
+
+  .titleOverlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: pxToRem(0);
+    left: pxToRem(0);
+    padding: pxToRem(0) var(--content-padding);
+    width: max(100%, 100vw);
+    z-index: var(--z-index-above-page);
+
+    .title {
+      align-items: flex-start;
+      color: var(--gray-1);
+      display: flex;
+      flex-direction: column;
+      font-family: var(--styled-font);
+      gap: pxToRem(4);
+      justify-content: space-between;
+      bottom: pxToRem(0);
+      left: pxToRem(0);
+      margin: pxToRem(0) auto;
+      max-width: var(--content-max-width);
+      padding: pxToRem(24) pxToRem(0);
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .container {
+    .titleOverlay {
+      .title {
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+  }
+}

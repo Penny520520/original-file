@@ -1,0 +1,63 @@
+@import '../../styles/styles.scss';
+
+.careersPageItemContainer {
+  --background-color: #dcf0f9;
+  --padding: calc(var(--content-padding) / 1.5) var(--content-padding);
+
+  .careersPageItemRow {
+    --color: #a4b3ba;
+    --padding: #{pxToRem(0)};
+
+    .careersPageItemAction {
+      --color: #000000;
+
+      .careersPageItemActionIntroText {
+        color: rgba(0, 0, 0, 0.3);
+        font-size: pxToRem(36);
+        line-height: 1.2;
+        max-width: $medium;
+        width: 100%;
+
+        .careersPageItemActionIntroSecondaryText {
+          color: #000000;
+        }
+      }
+    }
+
+    .careersPageItemActionHovered {
+      --hover-color: #535353;
+
+      .careersPageItemActionIntroText {
+        color: var(--hover-color);
+
+        .careersPageItemActionIntroSecondaryText {
+          color: var(--hover-color);
+        }
+      }
+    }
+
+    .careersPageItemArrowAction {
+      --color: #139ed7;
+
+      & > * {
+        font-size: pxToRem(12);
+      }
+    }
+
+    .careersPageItemArrowActionHovered {
+      --hover-color: #535353;
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .careersPageItemContainer {
+    .careersPageItemRow {
+      flex-direction: row;
+    }
+
+    .careersPageItemRowRule {
+      --margin: #{pxToRem(96)};
+    }
+  }
+}

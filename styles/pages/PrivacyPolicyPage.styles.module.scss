@@ -1,0 +1,39 @@
+@import '../../styles/styles.scss';
+
+.privacyPolicyPageBreadcrumbContainer {
+  --background-color: #414141;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  .privacyPolicyPageBreadcrumbRow {
+    --padding: #{pxToRem(0)};
+  }
+}
+
+.privacyPolicyPageItemContainer {
+  --background-color: #414141;
+  --padding: #{pxToRem(0)} var(--content-padding) var(--content-padding) var(--content-padding);
+
+  .privacyPolicyPageItemRow {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    & > * {
+      color: #ffffff;
+    }
+
+    .privacyPolicyMainTitle {
+      font-size: pxToRem(40);
+      margin-bottom: pxToRem(32);
+    }
+
+    .privacyPolicyText {
+      max-width: $small;
+    }
+
+    .privacyPolicyFooter {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

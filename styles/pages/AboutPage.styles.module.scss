@@ -1,0 +1,295 @@
+@import '../styles.scss';
+
+.aboutPageFirstSection {
+  --background-color: #e6dbcd;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(32);
+
+  .aboutPageFirstSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+    width: 100%;
+
+    .aboutPageBreadcrumbs {
+      --margin: #{pxToRem(0)};
+    }
+
+    .aboutPageSubtitle {
+      font-size: pxToRem(26);
+      line-height: 1.2;
+      margin-bottom: pxToRem(32);
+      max-width: pxToRem(650);
+
+      & + .aboutPageIntroText {
+        line-height: 1.25;
+        margin-bottom: pxToRem(16);
+      }
+
+      & + .aboutPageIntroText + .aboutPageIntroText {
+        margin-bottom: pxToRem(64);
+      }
+    }
+  }
+}
+
+.aboutPageSecondSection {
+  --background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(64);
+
+  .aboutPageSecondSectionItems {
+    flex-direction: column;
+
+    .aboutPageSecondSectionTitle {
+      font-size: pxToRem(14);
+      line-height: 1.25;
+      margin-bottom: pxToRem(32);
+      max-width: pxToRem(450);
+    }
+  }
+}
+
+.aboutPageThirdSection {
+  --background-color: #e6e6e6;
+
+  .aboutPageThirdSectionItems {
+    flex-direction: column;
+
+    .aboutTeam {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      width: 100%;
+
+      .aboutPageThirdSectionProfileColumn {
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(16);
+        max-width: var(--min-width);
+        width: 100%;
+
+        .aboutPageThirdSectionIcon {
+          stroke: #139ed7;
+          transform: rotate(0deg);
+          transform-origin: center center;
+          transition: transform 300ms ease-in-out;
+        }
+
+        .aboutPageThirdSectionIconActive {
+          transform: rotate(90deg);
+        }
+
+        .aboutPageThirdSectionProfile {
+          aspect-ratio: 0.64;
+          position: relative;
+          width: 100%;
+        }
+
+        .aboutPageThirdSectionBio {
+          align-items: center;
+          display: flex;
+          gap: pxToRem(8);
+          margin-top: pxToRem(8);
+        }
+
+        .aboutPageThirdSectionText {
+          display: none;
+          text-align: left;
+          transform-origin: top center;
+          transition: transform 300ms ease-in-out;
+
+          &.aboutPageThirdSectionTextHidden {
+            display: none;
+            transform: scale(0);
+          }
+
+          &.aboutPageThirdSectionTextVisible {
+            display: block;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.aboutPageFourthSection {
+  --background-color: #ffffff;
+  --padding: var(--content-padding) var(--content-padding)
+    calc(var(--content-padding) * 2) var(--content-padding);
+
+  .aboutPageFourthSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    .aboutPageFourthSectionIntro {
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      h2 {
+        font-size: pxToRem(32);
+        line-height: 1.25;
+        margin-top: pxToRem(64);
+        max-width: pxToRem(640);
+      }
+    }
+
+    .aboutPageFourthSectionHorizontalRule {
+      margin-top: pxToRem(128);
+      margin-bottom: pxToRem(64);
+      width: 100%;
+    }
+
+    .aboutPageFourthSectionLogosContainer {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(0);
+      width: 100%;
+
+      .aboutPageFourthSectionLogos {
+        flex-direction: column;
+        gap: pxToRem(64);
+        justify-content: flex-start;
+        width: 100%;
+
+        .aboutPageFourthSectionLogo {
+          --image-divider: 1;
+
+          aspect-ratio: 3.5;
+          max-width: pxToRem(140);
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.aboutPageIntro {
+  --gap: #{pxToRem(32)};
+
+  flex-direction: column;
+  z-index: var(--z-index-above-page);
+
+  h1 {
+    font-size: pxToRem(36);
+    margin: pxToRem(32) pxToRem(0) pxToRem(16);
+  }
+
+  .aboutPageIntroText {
+    max-width: $small;
+
+    &.aboutPageIntroTextParagraph {
+      line-height: 1;
+    }
+  }
+}
+
+.aboutPageImage {
+  aspect-ratio: 1.5;
+  margin: pxToRem(32) pxToRem(0) pxToRem(64) pxToRem(0);
+  position: relative;
+  width: 100%;
+  z-index: var(--z-index-above-page);
+}
+
+.aboutGrid {
+  --gap: #{pxToRem(32)};
+  --row-count: 1;
+
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: flex-start;
+
+  .aboutGridItem {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(8);
+    stroke: #34abdc;
+    width: calc(
+      (100% - ((var(--row-count) - 1) * var(--gap))) / var(--row-count)
+    );
+
+    .aboutGridItemText {
+      h2 {
+        font-family: var(--styled-font);
+      }
+
+      p {
+        font-size: pxToRem(12);
+        text-align: left;
+      }
+    }
+  }
+}
+
+.aboutAttributeText {
+  color: var(--attribute-text-color, #000000);
+  font-size: var(--font-size, #{pxToRem(12)});
+  margin-top: pxToRem(8);
+  max-width: $small;
+}
+
+@media screen and (min-width: $small) {
+  .aboutPageSecondSection {
+    .aboutPageSecondSectionItems {
+      .aboutGrid {
+        --row-count: 2;
+      }
+    }
+  }
+
+  .aboutPageThirdSection {
+    .aboutPageThirdSectionItems {
+      .aboutGrid {
+        --row-count: 2;
+      }
+    }
+  }
+
+  .aboutPageFourthSection {
+    --padding: var(--content-padding);
+
+    .aboutPageFourthSectionItems {
+      .aboutPageFourthSectionLogosContainer {
+        gap: pxToRem(32);
+
+        .aboutPageFourthSectionLogos {
+          flex-direction: row;
+
+          .aboutPageFourthSectionLogo {
+            --image-divider: 2;
+
+            max-width: pxToRem(280);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .aboutPageSecondSection {
+    .aboutPageSecondSectionItems {
+      .aboutGrid {
+        --row-count: 3;
+      }
+    }
+  }
+
+  .aboutPageThirdSection {
+    .aboutPageThirdSectionItems {
+      .aboutGrid {
+        --row-count: 4;
+      }
+    }
+  }
+}

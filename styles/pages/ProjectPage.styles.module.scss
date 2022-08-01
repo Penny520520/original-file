@@ -1,0 +1,203 @@
+@import '../styles.scss';
+
+.projectPageSection {
+  --background-color: #ffffff;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+
+  .projectPageSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+    gap: pxToRem(32);
+
+    .projectPageBreadcrumbs {
+      --margin: #{pxToRem(0)};
+    }
+
+    .projectPageTitle {
+      font-family: var(--styled-font);
+      font-size: pxToRem(32);
+    }
+
+    .projectPageDescription {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 0.75em;
+      gap: pxToRem(32);
+      text-transform: uppercase;
+
+      .projectPageDescriptionContent {
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(8);
+
+        .projectPageDescriptionSectionTitle {
+          align-items: center;
+          color: #959595;
+          display: flex;
+          font-size: pxToRem(10);
+          gap: pxToRem(4);
+          stroke: #959595;
+
+          p {
+            font-size: inherit;
+          }
+        }
+
+        .projectPageDescriptionSectionText {
+          color: #000000;
+          font-size: pxToRem(10);
+          transform: translateX(#{pxToRem(16)});
+        }
+
+        .projectPageDescriptionSectionAction {
+          align-items: center;
+          color: #bcbcbc;
+          display: flex;
+          gap: pxToRem(4);
+          stroke: #bcbcbc;
+
+          svg {
+            transition: transform 300ms ease-in-out;
+          }
+
+          &:hover {
+            svg {
+              transform: translateX(#{pxToRem(4)});
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .projectPageInformation {
+    --padding: #{pxToRem(0)};
+
+    justify-content: space-between;
+    gap: pxToRem(32);
+    margin: var(--margin, #{pxToRem(64)} auto);
+
+    .projectPageInformationLeft {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(24);
+      max-width: $small;
+
+      & h2,
+      p {
+        color: var(--color, inherit);
+        font-weight: var(--font-weight, normal);
+        font-size: var(--font-size, inherit);
+      }
+    }
+
+    .projectPageInformationActions {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(20);
+
+      .projectPageInformationAction {
+        --color: #000000;
+
+        align-items: center;
+        border-bottom: pxToRem(2) solid #000000;
+        color: var(--color);
+        display: flex;
+        gap: pxToRem(8);
+        justify-content: space-between;
+        stroke: var(--color);
+
+        svg {
+          transform: translateX(#{pxToRem(0)});
+          transition: transform 300ms ease-in-out;
+        }
+
+        &:hover {
+          --color: #000000;
+
+          svg {
+            transform: translateX(#{pxToRem(4)});
+          }
+        }
+      }
+    }
+  }
+
+  .projectPageImages {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+    gap: pxToRem(32);
+    margin-bottom: pxToRem(64);
+
+    .projectPageImagesContainer {
+      --flex-direction: column;
+
+      color: #959595;
+      width: 100%;
+
+      p {
+        font-size: pxToRem(12);
+        margin-top: pxToRem(8);
+      }
+
+      .projectPageImage {
+        aspect-ratio: var(--aspect-ratio, 1.5);
+        position: relative;
+        width: 100%;
+      }
+
+      .projectPageImageTwo {
+        aspect-ratio: var(--aspect-ratio, 2);
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+
+  .projectPageCoverImage {
+    aspect-ratio: var(--aspect-ratio, 1.5);
+    position: relative;
+    width: 100%;
+
+    p {
+      color: #959595;
+      font-size: pxToRem(14);
+    }
+  }
+  .projectPageCoverImageTwo {
+    aspect-ratio: var(--aspect-ratio, 2);
+    position: relative;
+    width: 100%;
+
+    p {
+      color: #959595;
+      font-size: pxToRem(14);
+    }
+  }
+}
+
+.projectPageMainCoverImage {
+  --breadcrumb-height: #{pxToRem(75.49)};
+
+  height: calc(50vh - var(--nav-bar-height) - var(--breadcrumb-height));
+}
+
+@media screen and (min-width: $small) {
+  .projectPageSection {
+    .projectPageSectionItems {
+      .projectPageTitle {
+        font-size: pxToRem(36);
+      }
+    }
+  }
+
+  .projectPageMainCoverImage {
+    height: calc(100vh - var(--nav-bar-height) - var(--breadcrumb-height));
+  }
+}

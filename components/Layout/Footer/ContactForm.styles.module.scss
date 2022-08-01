@@ -1,0 +1,109 @@
+@import '../../../styles/styles.scss';
+
+.contactFormRow {
+  color: #a4b3ba;
+  flex-direction: column;
+  gap: pxToRem(32);
+  width: 100%;
+
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(32);
+    position: relative;
+
+    .contactFormTitle {
+      color: #959595;
+      font-size: pxToRem(36);
+
+      .contactFormTitleUniqueText {
+        color: #ffffff;
+      }
+    }
+
+    .contactFormFieldset {
+      align-items: center;
+      border-bottom: pxToRem(2) solid #535353;
+      display: flex;
+      gap: pxToRem(16);
+      justify-content: space-between;
+      padding-bottom: pxToRem(4);
+
+      .contactFormInput {
+        color: #959595;
+        font-size: pxToRem(11);
+        font-weight: 300;
+        min-width: pxToRem(50);
+      }
+
+      .contactFormAction {
+        --color: #d2d2d2;
+
+        align-items: center;
+        color: var(--color);
+        display: flex;
+        font-size: pxToRem(12);
+        gap: pxToRem(8);
+        min-width: calc(var(--character-count) * #{pxToRem(16)});
+        stroke: var(--color);
+
+        &:hover {
+          & svg {
+            animation-name: slideOnHover;
+          }
+        }
+
+        & svg {
+          animation-direction: normal;
+          animation-duration: 300ms;
+          animation-fill-mode: both;
+          animation-name: slideBack;
+          animation-timing-function: ease-in-out;
+        }
+      }
+    }
+
+    .contactFormResponse {
+      position: absolute;
+      bottom: pxToRem(0);
+      left: pxToRem(0);
+    }
+  }
+
+  .contactFormAnchorTag {
+    --color: #868687;
+
+    align-items: center;
+    display: flex;
+    font-size: pxToRem(12);
+    gap: pxToRem(8);
+    color: var(--color);
+    stroke: var(--color);
+
+    & svg {
+      animation-direction: normal;
+      animation-duration: 300ms;
+      animation-fill-mode: both;
+      animation-name: slideBack;
+      animation-timing-function: ease-in-out;
+    }
+
+    &:hover {
+      --color: #f1f1f1;
+
+      & svg {
+        animation-name: slideOnHover;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .contactFormRow {
+    flex-direction: row;
+
+    .contactFormAnchorTag {
+      transform: rotate(90deg) translateX(40%) translateY(#{pxToRem(-32)});
+    }
+  }
+}

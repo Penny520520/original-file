@@ -1,0 +1,30 @@
+@import '../../styles/styles.scss';
+
+.item {
+  --animation-duration: 300ms;
+
+  position: relative;
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  top: pxToRem(0);
+
+  @include ltr {
+    left: pxToRem(0);
+  }
+
+  @include rtl {
+    right: pxToRem(0);
+  }
+
+  &.itemHidden {
+    animation: fadeOut var(--animation-duration) both ease-in-out;
+  }
+
+  &.itemVisible {
+    animation: fadeIn var(--animation-duration) both ease-in-out;
+    display: flex;
+  }
+}

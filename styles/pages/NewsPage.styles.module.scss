@@ -1,0 +1,75 @@
+@import '../styles.scss';
+
+.container {
+  --padding: #{pxToRem(1)} var(--content-padding) #{pxToRem(64)}
+    var(--content-padding);
+
+  .breadcrumbs {
+    --padding: #{pxToRem(16)} #{pxToRem(0)} #{pxToRem(64)} #{pxToRem(0)};
+  }
+
+  .list {
+    --flex-direction: row;
+    --padding: #{pxToRem(0)};
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: pxToRem(64);
+
+    .listItem {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(8);
+      min-width: pxToRem(200);
+      max-width: 100%;
+      width: 100%;
+      position: relative;
+
+      &:hover {
+        .image {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+
+      .image {
+        aspect-ratio: 1.7;
+        position: relative;
+        width: 100%;
+
+        &::after {
+          content: '';
+          opacity: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          position: absolute;
+          top: pxToRem(0);
+          left: pxToRem(0);
+          height: 100%;
+          width: 100%;
+          transition: opacity 300ms ease-in-out;
+        }
+      }
+
+      .title {
+        font-size: pxToRem(16);
+        max-width: $small;
+      }
+
+      .subtitle {
+        font-size: pxToRem(14);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  .container {
+    .list {
+      .listItem {
+        max-width: pxToRem(400);
+      }
+    }
+  }
+}

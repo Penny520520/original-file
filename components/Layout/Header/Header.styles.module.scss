@@ -1,0 +1,35 @@
+@import '../../../styles/styles.scss';
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: space-between;
+  height: var(--nav-bar-height);
+  padding: pxToRem(16) pxToRem(8);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-overlay);
+
+  .homeAction {
+    aspect-ratio: 5.3;
+    height: pxToRem(36.4);
+    position: relative;
+  }
+
+  .menuAction {
+    z-index: var(--z-index-top);
+  }
+}
+
+@media screen and (min-width: $small) {
+  .container {
+    padding: pxToRem(16);
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .container {
+    padding: pxToRem(16) pxToRem(32);
+  }
+}

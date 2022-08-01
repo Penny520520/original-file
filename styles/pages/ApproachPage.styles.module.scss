@@ -1,0 +1,187 @@
+@import '../styles.scss';
+
+.approachPageFirstSection {
+  --background-color: #e6e6e6;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(32);
+
+  .approachPageFirstSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    .approachPageBreadcrumbs {
+      --margin: #{pxToRem(0)};
+    }
+
+    .approachPageFirstSectionItemRow {
+      flex-direction: column;
+      gap: var(--row-gap, #{pxToRem(32)});
+      margin-bottom: pxToRem(48);
+      width: 100%;
+
+      .approachPageFirstSectionItemRowTopText,
+      .approachPageFirstSectionItemRowBottomText {
+        h2 {
+          font-family: var(--styled-font);
+        }
+
+        p {
+          font-size: pxToRem(14);
+          line-height: 1.25;
+        }
+      }
+    }
+
+    .approachPageFirstSectionText {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(32);
+    }
+
+    .approachPageFirstSectionImage {
+      aspect-ratio: 1.5;
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+
+.approachPageSecondSection {
+  --background-color: #ffffff;
+  --padding: var(--content-padding) var(--content-padding) #{pxToRem(0)} var(--content-padding);
+
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(32);
+
+  .approachPageSecondSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+    width: 100%;
+
+    .approachPageSecondSectionTitle {
+      --flex-direction: column;
+
+      align-items: center;
+      color: #959595;
+      gap: pxToRem(4);
+      stroke: #959595;
+
+      p {
+        font-size: pxToRem(10);
+      }
+    }
+
+    .approachPageIntro {
+      h2 {
+        font-size: pxToRem(32);
+      }
+
+      .approachPageIntroText {
+        line-height: 1.2;
+      }
+    }
+
+    .approachPageSecondSectionAccordion {
+      margin: pxToRem(64) pxToRem(0) pxToRem(48);
+      width: 100%;
+    }
+  }
+}
+
+.approachPageThirdSection {
+  --background-color: #e6f5fa;
+  --padding: var(--content-padding) var(--content-padding)
+    calc(var(--content-padding) * 4) var(--content-padding);
+
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(32);
+
+  .approachPageThirdSectionItems {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+    width: 100%;
+    z-index: var(--z-index-above-page);
+
+    .approachPageThirdSectionTitle {
+      --flex-direction: column;
+
+      color: #959595;
+      font-size: pxToRem(10);
+      gap: pxToRem(4);
+      stroke: #959595;
+    }
+
+    .approachPageIntro {
+      h2 {
+        font-size: pxToRem(32);
+      }
+
+      .approachPageIntroText {
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+.approachPageIntro {
+  --gap: #{pxToRem(32)};
+
+  align-items: flex-start;
+  flex-direction: column;
+
+  h1 {
+    font-size: pxToRem(32);
+  }
+
+  h1 + * {
+    margin-bottom: pxToRem(48);
+  }
+
+  .approachPageIntroText {
+    line-height: 1.25;
+    max-width: $small;
+  }
+}
+
+.approachPageImage {
+  aspect-ratio: 1.5;
+  margin: pxToRem(32) pxToRem(0) pxToRem(64) pxToRem(0);
+  position: relative;
+  width: 100%;
+  z-index: var(--z-index-above-page);
+}
+
+@media screen and (min-width: $small) {
+  .approachPageThirdSection {
+    --padding: var(--content-padding);
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .approachPageFirstSection {
+    .approachPageFirstSectionItems {
+      .approachPageFirstSectionItemRow {
+        flex-direction: row;
+
+        .approachPageFirstSectionItemRowTopText {
+          max-width: 40%;
+        }
+
+        .approachPageFirstSectionItemRowBottomText {
+          max-width: 60%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@import './functions.styles.scss';
+
+$xsmall: #{pxToRem(400)};
+$small: #{pxToRem(600)};
+$medium: #{pxToRem(960)};
+$large: #{pxToRem(1020)};

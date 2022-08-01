@@ -1,0 +1,8 @@
+@import '../../styles/styles.scss';
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--row-gap, #{pxToRem(16)});
+  justify-content: var(--row-justify-content, space-between);
+}

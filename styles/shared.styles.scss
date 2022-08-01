@@ -1,0 +1,97 @@
+@import './animations.styles.scss';
+@import './constants.styles.scss';
+@import './functions.styles.scss';
+@import './mixins.styles.scss';
+
+.pageItemContainer {
+  background-color: var(--background-color, #ffffff);
+  padding: var(--padding, var(--content-padding));
+}
+
+.pageItemRow {
+  align-items: var(--align-items, flex-start);
+  color: var(--color, #000000);
+  display: var(--display, flex);
+  flex-direction: var(--flex-direction, column);
+  gap: var(--gap, #{pxToRem(16)});
+  justify-content: var(--justify-content, space-between);
+  margin: var(--margin, 0 auto);
+  padding: var(--padding, 0);
+  max-width: var(--content-max-width);
+  width: 100%;
+}
+
+.pageItemAction {
+  color: var(--color, #000000);
+}
+
+.pageItemActionHovered {
+  color: var(--hover-color, #535353);
+}
+
+.pageItemArrowAction {
+  align-items: center;
+  color: var(--color, #139ed7);
+  display: var(--display, flex);
+  gap: pxToRem(8);
+  stroke: var(--color, #139ed7);
+
+  & svg {
+    animation-direction: normal;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+    animation-name: slideBack;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+.pageItemArrowActionHovered {
+  align-items: center;
+  color: var(--hover-color, #535353);
+  display: flex;
+  gap: pxToRem(8);
+  stroke: var(--hover-color, #535353);
+
+  & svg {
+    animation-direction: normal;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+    animation-name: slideOnHover;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+.pageItemImage {
+  position: relative;
+  aspect-ratio: var(--aspect-ratio);
+  width: 100%;
+
+  &::before {
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    z-index: var(--z-index-above-page);
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .pageItemRow {
+    flex-direction: var(--flex-direction, row);
+  }
+
+  .pageItemArrowAction {
+    transform: rotate(90deg) translateX(40%) translateY(#{pxToRem(-32)});
+  }
+}

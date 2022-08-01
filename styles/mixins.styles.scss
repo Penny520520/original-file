@@ -1,0 +1,25 @@
+@import './functions.styles.scss';
+
+@mixin ltr {
+  :not([dir]) & {
+    @content;
+  }
+
+  [dir='ltr'] & {
+    @content;
+  }
+}
+
+@mixin rtl {
+  [dir='rtl'] & {
+    @content;
+  }
+}
+
+@mixin letterSpacing($value) {
+  letter-spacing: designValueToEms($value);
+}
+
+@mixin lineSpacing($value) {
+  line-spacing: designValueToEms($value);
+}

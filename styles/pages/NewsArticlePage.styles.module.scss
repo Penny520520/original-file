@@ -1,0 +1,107 @@
+@import '../styles.scss';
+
+.container {
+  --padding: #{pxToRem(1)} var(--content-padding) #{pxToRem(64)}
+    var(--content-padding);
+
+  .breadcrumbs {
+    --padding: #{pxToRem(16)} #{pxToRem(0)} #{pxToRem(0)};
+  }
+
+  .header {
+    --padding: #{pxToRem(40)} #{pxToRem(0)} #{pxToRem(0)};
+
+    h1 {
+      font-size: pxToRem(36);
+    }
+  }
+
+  .body {
+    --flex-direction: row;
+    --padding: #{pxToRem(0)};
+    --gap: #{pxToRem(32)};
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: pxToRem(96);
+    justify-content: flex-start;
+
+    & > * {
+      width: 100%;
+    }
+
+    .newsArticleImageContainer {
+      margin: pxToRem(70) pxToRem(0);
+      width: 100%;
+
+      .newsArticleImage {
+        --aspect-ratio: var(--content-card-image-aspect-ratio, 1.5);
+
+        margin-bottom: pxToRem(8);
+        position: relative;
+        width: 100%;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .newsArticleImageTitle {
+      color: #959595;
+      font-size: pxToRem(12);
+    }
+
+    .newsArticleLink {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .newsArticleTitle {
+      font-size: pxToRem(36);
+      line-height: 1.5;
+      margin-bottom: pxToRem(32);
+      max-width: $small;
+    }
+
+    .newsArticleSubtitle {
+      font-size: pxToRem(24);
+      margin: pxToRem(32) pxToRem(0) pxToRem(16);
+      max-width: $small;
+    }
+
+    .newsArticleText {
+      color: #959595;
+      font-size: pxToRem(12);
+      margin-bottom: pxToRem(16);
+      max-width: $small;
+    }
+  }
+
+  .footer {
+    --flex-direction: row;
+    --padding: #{pxToRem(0)};
+
+    a {
+      align-items: center;
+      border-bottom: pxToRem(1) solid #000000;
+      display: flex;
+      flex-direction: row;
+      gap: pxToRem(16);
+      padding-bottom: pxToRem(4);
+      stroke: #000000;
+
+      svg {
+        transform: translateX(#{pxToRem(0)});
+        transition: transform 300ms ease-in-out;
+      }
+
+      &:hover {
+        svg {
+          transform: translateX(#{pxToRem(4)});
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+@import '../../styles/styles.scss';
+
+@keyframes pullUpDropdown {
+  to {
+    transform: scale(0) translateY(#{pxToRem(-4)});
+  }
+}
+
+@keyframes pullDownDropdown {
+  to {
+    transform: scale(1) translateY(#{pxToRem(0)});
+  }
+}
+
+.select {
+  position: relative;
+
+  select {
+    display: none;
+  }
+
+  .selection {
+    align-items: center;
+    background-color: var(--selection-background-color, #ffffff);
+    border-bottom: pxToRem(1) solid var(--selection-border-color, #000000);
+    display: flex;
+    gap: pxToRem(8);
+    justify-content: space-between;
+    padding: pxToRem(32) pxToRem(0) pxToRem(0);
+    position: relative;
+    transition: background-color 300ms ease-in-out, padding 300ms ease-in-out;
+    width: 100%;
+
+    &.selectionDropdownOpen {
+      background-color: var(
+        --selection-dropdown-open-background-color,
+        #ffffff
+      );
+      border-bottom-color: var(
+        --selection-dropdown-open-background-color,
+        #ffffff
+      );
+      padding: pxToRem(16);
+    }
+
+    .label {
+      color: var(--selection-label-color, #000000);
+      max-width: 80%;
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .arrow {
+      stroke: var(--selection-arrow-stroke, #000000);
+      transform: rotate(90deg);
+      transition: stroke 300ms ease-in-out, transform 300ms ease-in-out;
+
+      &.arrowDropdownOpen {
+        stroke: var(--selection-arrow-dropdown-open-stroke, #21a3d8);
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  .dropdown {
+    align-items: flex-start;
+    animation: scaleDown 0ms forwards, fadeOut 300ms ease-in-out forwards,
+      pullUpDropdown 300ms ease-in-out forwards;
+    background-color: var(
+      --dropdown-background-color,
+      var(--selection-background-color, #ffffff)
+    );
+    flex-direction: column;
+    gap: pxToRem(8);
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    left: pxToRem(0);
+    right: pxToRem(0);
+    transform-origin: top center;
+    z-index: var(--z-index-select);
+
+    &.dropdownOpen {
+      animation: scaleUp 0ms forwards, fadeIn 300ms ease-in-out forwards,
+        pullDownDropdown 300ms ease-in-out forwards;
+      transform: translateY(#{pxToRem(0)});
+    }
+
+    .dropdownItem {
+      align-items: center;
+      background-color: var(
+        --dropdown-item-background-color,
+        var(
+          --dropdown-background-color,
+          var(--selection-background-color, #ffffff)
+        )
+      );
+      color: var(--dropdown-item-color, #aeacaa);
+      display: flex;
+      gap: pxToRem(8);
+      justify-content: flex-start;
+      padding: var(--dropdown-item-padding, #{pxToRem(8)});
+      width: 100%;
+
+      .arrow {
+        stroke: var(--dropdown-item-color, #c6c2be);
+        transform: scale(0) translateX(-100%);
+        transform-origin: center left;
+        transition: transform 300ms ease-in-out;
+      }
+
+      .dropdownItemText {
+        font-size: pxToRem(13);
+        transform: translateX(#{pxToRem(-25)});
+        transition: transform 300ms ease-in-out;
+      }
+
+      &:hover {
+        background-color: var(
+          --dropdown-selected-item-hover-background-color,
+          rgba(0, 0, 0, 0.1)
+        );
+        color: var(--dropdown-item-hover-color, #000000);
+
+        .arrow {
+          stroke: var(--dropdown-item-hover-color, #000000);
+          transform: scale(1) translateX(#{pxToRem(0)});
+        }
+
+        .dropdownItemText {
+          transform: translateX(#{pxToRem(0)});
+        }
+      }
+
+      &.dropdownSelectedItem {
+        background-color: var(
+          --dropdown-selected-item-background-color,
+          rgba(0, 0, 0, 0.2)
+        );
+        color: var(--dropdown-selected-item-color, #000000);
+
+        &:hover {
+          background-color: var(
+            --dropdown-selected-item-hover-background-color,
+            rgba(0, 0, 0, 0.3)
+          );
+        }
+      }
+    }
+  }
+}

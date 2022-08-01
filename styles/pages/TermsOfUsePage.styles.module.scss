@@ -1,0 +1,34 @@
+@import '../../styles/styles.scss';
+
+.termsOfUsePageBreadcrumbContainer {
+  --background-color: #414141;
+  --padding: #{pxToRem(16)} var(--content-padding);
+
+  .termsOfUsePageBreadcrumbRow {
+    --padding: #{pxToRem(0)};
+  }
+}
+
+.termsOfUsePageItemContainer {
+  --background-color: #414141;
+  --padding: #{pxToRem(0)} var(--content-padding) var(--content-padding) var(--content-padding);
+
+  .termsOfUsePageItemRow {
+    --padding: #{pxToRem(0)};
+
+    flex-direction: column;
+
+    & > * {
+      color: #ffffff;
+    }
+
+    .termsOfUseMainTitle {
+      font-size: pxToRem(40);
+      margin-bottom: pxToRem(32);
+    }
+
+    .termsOfUseText {
+      max-width: $small;
+    }
+  }
+}

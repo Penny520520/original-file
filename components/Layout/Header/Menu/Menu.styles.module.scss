@@ -1,0 +1,162 @@
+@import '../../../../styles/styles.scss';
+
+$menuItems: (
+  1: #000000,
+  2: #1f1f1f,
+  3: #2e2e2e,
+  4: #3c3c3c,
+  5: #454545,
+  6: #4d4d4d,
+);
+
+@mixin generateMenuItemStyles {
+  @each $menuItemNumber, $menuItemBackgroundColor in $menuItems {
+    &:nth-of-type(#{$menuItemNumber}) {
+      background-color: $menuItemBackgroundColor;
+      max-height: calc(100vh - ((#{$menuItemNumber} - 1) * #{pxToRem(100)}));
+
+      @include ltr {
+        right: calc((#{$menuItemNumber} - 1) * var(--menu-item-width));
+      }
+
+      @include rtl {
+        left: calc((#{$menuItemNumber} - 1) * var(--menu-item-width));
+      }
+    }
+  }
+}
+
+.container {
+  --animation-duration: 400ms;
+  --presentation-animation-duration: 1ms;
+
+  animation-timing-function: ease-in-out;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  position: absolute;
+  top: 0;
+
+  @include ltr {
+    right: pxToRem(-16);
+    transform-origin: top right;
+  }
+
+  @include rtl {
+    left: pxToRem(-16);
+    transform-origin: top left;
+  }
+
+  height: 100vh;
+  width: 100%;
+  transform-origin: top right;
+  z-index: var(--z-index-menu-overlay);
+
+  &.containerIn {
+    display: block;
+
+    @include ltr {
+      animation: moveOnScreenLtr var(--presentation-animation-duration) both,
+        scaleUp var(--presentation-animation-duration) both,
+        fadeIn var(--animation-duration) var(--presentation-animation-duration)
+          both;
+    }
+
+    @include rtl {
+      animation: moveOnScreenRtl var(--presentation-animation-duration) both,
+        scaleUp var(--presentation-animation-duration) both,
+        fadeIn var(--animation-duration) var(--presentation-animation-duration)
+          both;
+    }
+  }
+
+  &.containerOut {
+    display: block;
+
+    @include ltr {
+      animation: fadeOut var(--animation-duration) both,
+        scaleDown var(--presentation-animation-duration)
+          var(--animation-duration) both,
+        moveOffScreenLtr var(--presentation-animation-duration)
+          var(--animation-duration) both;
+    }
+
+    @include rtl {
+      animation: fadeOut var(--animation-duration) both,
+        scaleDown var(--presentation-animation-duration)
+          var(--animation-duration) both,
+        moveOffScreenRtl var(--presentation-animation-duration)
+          var(--animation-duration) both;
+    }
+  }
+
+  .menu {
+    animation-duration: calc(var(--animation-duration) + 100ms);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    display: none;
+    height: 100%;
+    max-height: 100vh;
+    width: 100%;
+    position: relative;
+    transform-origin: top right;
+
+    &.menuClosed {
+      animation-name: fadeOut;
+      display: block;
+    }
+
+    &.menuOpen {
+      animation-name: fadeIn;
+      display: block;
+    }
+
+    .menuItem {
+      --menu-item-width: #{pxToRem(50)};
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: var(--menu-item-width);
+      z-index: var(--z-index-menu);
+      @include generateMenuItemStyles();
+
+      &::after {
+        bottom: pxToRem(112);
+        color: #ffffff;
+        content: attr(data-content);
+        font-size: pxToRem(28);
+        position: absolute;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+        width: var(--menu-item-width);
+      }
+
+      &:hover {
+        &::after {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $small) {
+  .container {
+    .menu {
+      .menuItem {
+        --menu-item-width: #{pxToRem(60)};
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $medium) {
+  .container {
+    .menu {
+      .menuItem {
+        --menu-item-width: #{pxToRem(100)};
+      }
+    }
+  }
+}
