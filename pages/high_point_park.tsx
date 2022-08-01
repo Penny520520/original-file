@@ -19,6 +19,7 @@ import { FormEvent } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import ReactPlayer from 'react-player';
 import logoWhite from 'public/images/High-Point-Park_LOGO_white.svg';
 import logo from 'public/images/HPPLogo.svg';
 import styles from 'styles/pages/HighPointPark.styles.module.scss';
@@ -223,6 +224,24 @@ function Project(): JSX.Element {
             </div>
           </Col>
         </Row>
+      </Container>
+      <Container className={styles.projectRowVideo}>
+        <Col md="12" lg="12">
+          <ReactPlayer
+            url="/videos/HPP-industrial_strata_opportunity_in_south_burnaby.mp4"
+            className={styles.projectVideo}
+            config={{
+              file: {
+                attributes: {
+                  poster:
+                    '/videos/HPP-video_cover-industrial_strata_opportunity.png',
+                  controlsList: 'nodownload',
+                },
+              },
+            }}
+            controls
+          />
+        </Col>
       </Container>
       <Container className={styles.projectRowTwo}>
         <Image
