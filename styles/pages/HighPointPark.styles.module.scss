@@ -155,7 +155,7 @@
   width: 100% !important;
   height: 100% !important;
 }
-// 
+//
 
 .projectRowTwo {
   padding-top: 101px;
@@ -604,6 +604,15 @@
     width: 41px;
     height: 41px;
     background-image: url(../../public/images/next-arrow-small.svg);
+  }
+  .projectRowVideo {
+    padding-top: 50px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .projectRowVideoCol {
+    margin-left: -4vw;
+    margin-right: -4vw;
   }
   .footerLinkBox {
     font-size: 10px;
