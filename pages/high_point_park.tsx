@@ -159,7 +159,7 @@ function HeroBanner(): JSX.Element {
 }
 function Project(): JSX.Element {
   // resetVideo
-  const hppVideo = useRef();
+  const hppVideo = useRef(null);
   useEffect(() => {
     const hppVideoNode = hppVideo.current;
     hppVideoNode.addEventListener('ended', resetVideo, false);
