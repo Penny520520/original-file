@@ -161,10 +161,12 @@ function Project(): JSX.Element {
   // resetVideo
   const hppVideo = useRef(null);
   useEffect(() => {
-    const hppVideoNode = hppVideo.current;
-    hppVideoNode.addEventListener('ended', resetVideo, false);
-    function resetVideo() {
-      hppVideoNode.src = hppVideoNode.src;
+    if (null !== hppVideo.current) {
+      const hppVideoNode = hppVideo.current;
+      hppVideoNode.addEventListener('ended', resetVideo, false);
+      function resetVideo() {
+        hppVideoNode.src = hppVideoNode.src;
+      }
     }
   });
   return (
