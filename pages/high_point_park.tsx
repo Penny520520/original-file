@@ -163,7 +163,7 @@ function Project(): JSX.Element {
   useEffect(() => {
     if (null !== hppVideo.current) {
       const hppVideoNode = hppVideo.current;
-      hppVideoNode.addEventListener('ended', this.resetVideo(), false);
+      hppVideoNode.addEventListener('ended', resetVideo(), false);
       
     }
     function resetVideo() {
