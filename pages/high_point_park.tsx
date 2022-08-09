@@ -163,13 +163,13 @@ function Project(): JSX.Element {
   useEffect(() => {
     if (null !== hppVideo.current) {
       const hppVideoNode = hppVideo.current;
-      hppVideoNode.addEventListener('ended', resetVideo(), false);
+      hppVideoNode.addEventListener('ended', this.resetVideo(), false);
       
     }
-    function resetVideo() {
-      hppVideoNode.src = hppVideoNode.src;
-    }
   });
+  resetVideo() {
+    hppVideoNode.src = hppVideoNode.src;
+  }
   return (
     <section id="project" className={styles.projectContainer}>
       <Container className={styles.projectRowOne}>
